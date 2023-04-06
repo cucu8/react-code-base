@@ -9,7 +9,7 @@ const RtookitApi = () => {
     const countries = useSelector(state => state.countries.countries)
     const loading = useSelector(state => state.countries.loading)
     const error = useSelector(state => state.countries.error)
-    console.log(countries)
+
     useEffect(() => {
         dispatch(getCountry())
     }, [])
@@ -20,7 +20,6 @@ const RtookitApi = () => {
 
     return (
         <div className='p-10' >
-
             {JSON.stringify(countries)}
         </div>
     )

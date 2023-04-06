@@ -6,6 +6,7 @@ import RouteIndex from './routes/routeIndex';
 import { UserProvider } from "./context/UserContext"
 import Modal from './components/Modal';
 import { ModalProvider } from "./context/ModalContext";
+import { ValueProvider } from './context/ValueContext';
 
 function App() {
 
@@ -14,10 +15,12 @@ function App() {
     <>
       <Toaster />
       <UserProvider>
-        <ModalProvider>
-          <Modal />
-          <RouteIndex />
-        </ModalProvider>
+        <ValueProvider>
+          <ModalProvider>
+            <Modal />
+            <RouteIndex />
+          </ModalProvider>
+        </ValueProvider>
       </UserProvider>
     </>
   );

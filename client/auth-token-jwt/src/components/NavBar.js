@@ -6,7 +6,7 @@ import ModalContext from '../context/ModalContext'
 
 
 
-const NavBar = () => {
+const NavBar = ({ openSideBar, setOpenSideBar }) => {
     const { setUser, user } = useContext(AuthContext)
     const { setOpen } = useContext(ModalContext)
     const navigate = useNavigate()
@@ -24,8 +24,27 @@ const NavBar = () => {
     }
 
     return (
-        <div>
-            <div className='flex flex-row gap-5'>
+        <div className="p-3 flex bg-white shadow justify-between sticky top-0 z-50">
+            <div className="flex flex-row gap-4 items-center justify-center">
+                <button
+                    className="rounded-full p-2 hover:bg-black hover:bg-opacity-40 duration-300 hover:text-white"
+                    onClick={() => setOpenSideBar(!openSideBar)}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                        />
+                    </svg>
+                </button>
                 {user?.userType === "admin" && <NavLink className={({ isActive }) =>
                     isActive ? 'bg-green-500 font-bold' : 'bg-red-500 font-thin'
                 } to="/admin">Admin Panel</NavLink>}

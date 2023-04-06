@@ -13,22 +13,25 @@ const FormInput = ({ label, handleChange, ...item }) => {
     }
 
     return (
-        <div className='flex flex-col px-5' >
-            <label className=''>{label}</label>
+        <div className='flex flex-col px-5 gap-1' >
+            <label className='font-bold'>{label}</label>
 
-            <input
-                className={`border-2 transition-all outline-none duration-500 peer leading-8 ${focused && "invalid:border-red-500"}  valid:border-green-500`}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                {...item}
-                pattern={item.pattern}
-                onFocus={handleFocus}
-            />
-            <p
-                className={`invisible  ${focused && "peer-invalid:visible"} text-red-700 font-light`}
-            >
-                {item.errormessage}
-            </p>
+            <div className='flex flex-col '>
+
+                <input
+                    className={`border-2 transition-all p-2 outline-none duration-500 peer leading-8 ${focused && "invalid:border-red-500"} rounded valid:border-green-500`}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    {...item}
+                    pattern={item.pattern}
+                    onFocus={handleFocus}
+                />
+                <p
+                    className={`invisible  ${focused && "peer-invalid:visible"} text-red-700 font-light`}
+                >
+                    {item.errormessage}
+                </p>
+            </div>
         </div>
     )
 }
